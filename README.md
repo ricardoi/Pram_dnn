@@ -29,3 +29,16 @@ VCF data summary:
 |Heavily filtered | polymorphic |combined | 68,787 |  eu1_na1_noms_poly_nofixhet_nofixhomo_maf5.vcf.gz |
 Heavily filtered | polymorphic | NA1 | 55,545 | na1_noms_poly_nofixhet_nofixhomo_maf5.vcf.gz |
 Heavily filtered | polymorphic | EU1 | 21,352 | eu1_noms_poly_nofixhet_nofixhomo_maf5.vcf.gz |
+
+
+# Analysis
+Running deep neural networks using VCF data of _P. ramorum_ sampled in Southwestern, Oregon.
+**Genral Analysis**
+```bash
+python scripts/locator.py --vcf data/eu1_noms_poly_nofixhet_nofixhomo_maf5.vcf.gz --sample_data data/EU1_sample_data.csv --out out/EU1/EU1
+```
+**Window Analysis**
+```bash
+python scripts/locator.py --zarr data/EU1_genotypes.zarr --sample_data data/EU1_sample_data.csv --out out/EU1/ --windows --window_size 5000
+```
+> Note: did not like 1000 window size - nor 5000, zero-size array reduction operation maximum has no identity
