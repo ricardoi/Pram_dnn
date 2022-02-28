@@ -39,6 +39,6 @@ python scripts/locator.py --vcf data/eu1_noms_poly_nofixhet_nofixhomo_maf5.vcf.g
 ```
 **Window Analysis**
 ```bash
-python scripts/locator.py --zarr data/EU1_genotypes.zarr --sample_data data/EU1_sample_data.csv --out out/EU1/ --windows --window_size 5000
+python scripts/locator.py --zarr data/EU1_genotypes.zarr --sample_data data/EU1_sample_data.csv --out out/EU1/ --windows --window_size 10000
 ```
-> Note: did not like 1000 window size - nor 5000, zero-size array reduction operation maximum has no identity
+> Note: did not like 1000 window size - nor 5000, zero-size array reduction operation maximum has no identity, trying with 10,000 and its running more and more iterations.
