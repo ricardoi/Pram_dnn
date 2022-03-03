@@ -22,6 +22,43 @@ VCF generation - Carleson, N.:
 7. Optionally - taken farther, removed variants with MAF < 0.05
 > email notes: A huge increase in SNPs, keeping fixed heterozygous SNPs. 
 
+## Locator Test Example:
+Basic usage:
+```bash 
+# Calling locator help
+python scripts/locator.py --h
+# Calling plot script help
+Rscript scripts/plot_locator.R --help
+```
+
+Simple analysis
+```bash
+# Create a directory to write outputs
+mkdir out/test
+locator.py --vcf data/test_genotypes.vcf.gz \
+           --sample_data data/test_sample_data.txt \
+           --out out/test/test
+```
+> test_predlocs.txt -- predicted locations \
+test_history.txt -- training history \
+test_params.json -- run parameters \
+test_fitplot.pdf -- plot of training history
+
+Windows analysis
+```bash
+python scripts/vcf_to_zarr.py --vcf data/test_genotypes.vcf.gz \
+                              --zarr data/test_genotypes.zarr
+mkdir out/test_windows/
+locator.py --zarr data/test_genotypes.zarr \ 
+           --sample_data data/test_sample_data.txt \ 
+           --out out/test_windows/ --windows --window_size 250000
+```
+
+Visualizing analysis
+``` bash
+Rscript scripts/plot_locator.R --infile out/test_windows/ --sample_data data/test_sample_data.txt --out out/test_ --map F
+```
+## Analysis of _Phytophthora ramorum_
 ### Formatting 
 I need the .vcf files and a tab-delimited table with first column 'sampleID' and each entry giving the count of minor (or derived) alleles for an individual at a site. Missing locations must be indicated with `NA` or `NaN`. 
 
