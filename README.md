@@ -56,8 +56,11 @@ locator.py --zarr data/test_genotypes.zarr \
 
 Visualizing analysis
 ``` bash
-Rscript scripts/plot_locator.R --infile out/test_windows/ --sample_data data/test_sample_data.txt --out out/test_ --map F
+Rscript scripts/plot_locator.R --infile out/test_windows/ \
+                               --sample_data data/test_sample_data.txt \
+                               --out out/test_ --map F
 ```
+
 ## Analysis of _Phytophthora ramorum_
 ### Formatting 
 I need the .vcf files and a tab-delimited table with first column 'sampleID' and each entry giving the count of minor (or derived) alleles for an individual at a site. Missing locations must be indicated with `NA` or `NaN`. 
